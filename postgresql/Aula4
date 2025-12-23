@@ -1,0 +1,24 @@
+Índices (Performance)
+CREATE INDEX idx_usuarios_email
+ON usuarios(email);
+
+
+📌 Índice deixa o SELECT muito mais rápido.
+
+EXPLAIN (análise de performance)
+EXPLAIN ANALYZE
+SELECT * FROM usuarios WHERE email = 'joao@email.com';
+
+Views (consultas prontas)
+CREATE VIEW usuarios_ativos AS
+SELECT nome, email
+FROM usuarios
+WHERE ativo = true;
+
+SELECT * FROM usuarios_ativos;
+
+Usuários e permissões
+CREATE USER xxxx WITH PASSWORD 'xxxx';
+
+GRANT CONNECT ON DATABASE empresa TO xxxx;
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO xxxx;

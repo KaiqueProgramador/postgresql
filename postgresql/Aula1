@@ -1,0 +1,39 @@
+Instalação (Linux – padrão mercado)
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+
+Acessar o PostgreSQL
+sudo -i -u postgres
+psql
+
+Comandos básicos
+-- listar bancos
+\l
+
+-- criar banco
+CREATE DATABASE empresa;
+
+-- entrar no banco
+\c empresa
+
+-- listar tabelas
+\dt
+
+Tipos de dados mais usados
+INT
+SERIAL
+VARCHAR(255)
+TEXT
+BOOLEAN
+DATE
+TIMESTAMP
+NUMERIC(10,2)
+
+Criando tabela (exemplo real)
+CREATE TABLE usuarios (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100),
+  email VARCHAR(100),
+  ativo BOOLEAN,
+  criado_em TIMESTAMP DEFAULT NOW()
+);

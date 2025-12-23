@@ -1,0 +1,52 @@
+Conexão com aplicações
+
+Exemplo de conexão (conceito):
+
+host=localhost
+port=5432
+dbname=empresa
+user=xxxx
+password=xxxx
+
+PostgreSQL + Backend
+
+Usado com:
+
+FastAPI
+
+Django
+
+Node.js
+
+Java (Spring)
+
+📌 PostgreSQL quase sempre fica separado do código.
+
+Backup (Obrigatório no mercado)
+pg_dump empresa > backup.sql
+
+Restore
+psql empresa < backup.sql
+
+Transações (segurança de dados)
+BEGIN;
+
+UPDATE contas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE contas SET saldo = saldo + 100 WHERE id = 2;
+
+COMMIT;
+
+
+❌ Se der erro:
+
+ROLLBACK;
+
+
+pg_dump --schema-only empresa > ~/Desktop/postgresql/empresa.sql
+--schema-only
+
+👉 Diz ao pg_dump:
+
+❌ não copiar dados
+
+✅ copiar só a estrutura

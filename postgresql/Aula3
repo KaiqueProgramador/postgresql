@@ -1,0 +1,37 @@
+Tabelas relacionadas
+CREATE TABLE pedidos (
+  id SERIAL PRIMARY KEY,
+  usuario_id INT REFERENCES usuarios(id),
+  valor NUMERIC(10,2),
+  criado_em TIMESTAMP DEFAULT NOW()
+);
+
+INSERT com relacionamento
+INSERT INTO pedidos (usuario_id, valor)
+VALUES (1, 150.00);
+
+JOIN (Muito usado no mercado)
+SELECT 
+  u.nome,
+  p.valor,
+  p.criado_em
+FROM usuarios u
+JOIN pedidos p ON p.usuario_id = u.id;
+
+Tipos de JOIN
+
+INNER JOIN → só quem tem relação
+
+LEFT JOIN → todos da esquerda
+
+RIGHT JOIN → todos da direita
+
+SELECT u.nome, p.valor
+FROM usuarios u
+LEFT JOIN pedidos p ON p.usuario_id = u.id;
+
+Boas práticas
+
+✅ Evite dados duplicados
+✅ Use chaves estrangeiras
+✅ Tabelas bem separadas
